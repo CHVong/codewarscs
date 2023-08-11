@@ -15,17 +15,30 @@ internal class Program
 
         List <int> testData = new List<int> { 1, 2, 3, 4, 5 };
 
-        Console.WriteLine(String.Join(",",Odds(testData)));
-        List<int> odds = Odds(testData);
-        Console.WriteLine(string.Join(", ", odds));
+     
+        Console.WriteLine(Remove("Hi!!!", 1));
 
     }
 
 
 
-    public static List<int> Odds(List<int> values) =>
-    // arrow it
-    values.Where( value=> value%2==1)
-          .ToList();
+    public static string Remove(string s, int n)
+    {
+        int count = n;
+        string answer = "";
+        char[] splitStr = s.ToCharArray();
+        for (int i = 0; i < splitStr.Length; i++)
+        {
+            if (count > 0 && splitStr[i] == '!')
+            {
+                count--;
+            } else answer += splitStr[i];
+
+
+
+        }
+
+        return answer;
+    }
 
 }
